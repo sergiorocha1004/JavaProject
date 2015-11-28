@@ -1,1 +1,57 @@
 //Edit
+package exCasa2;
+
+import java.util.Scanner;
+
+public class Ex1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		char repeat, op;
+		double n1, n2, result = 0;
+		boolean success;
+		
+		do {
+			System.out.print("Digite o primeiro número: ");
+			n1 = scan.nextDouble();
+			System.out.print("Digite o operador: ");
+			op = scan.next().charAt(0);
+			System.out.print("Digite o segundo número: ");
+			n2 = scan.nextDouble();
+			
+			success = true;
+			switch(op) {
+			case '+': result = soma(n1, n2); break;
+			case '-': result = subtracao(n1, n2); break;
+			case '*': result = multiplicacao(n1, n2); break;
+			case '/': result = divisao(n1, n2); break;
+			default: System.out.println("Operação não implementada."); success = false;
+			}
+			
+			if(success) System.out.println("Resultado: " + result);
+			
+			System.out.println("Realizar nova operação? (S para continuar)");
+			repeat = scan.next().charAt(0);
+		} while(repeat=='s'||repeat=='S');
+		
+		scan.close();
+	}
+	
+	public static double soma(double arg1, double arg2) {
+		return arg1 + arg2;
+	}
+	
+	public static double subtracao(double arg1, double arg2) {
+		return arg1 - arg2;
+	}
+	
+	public static double multiplicacao(double arg1, double arg2) {
+		return arg1 * arg2;
+	}
+	
+	public static double divisao(double arg1, double arg2) {
+		return arg1 / arg2;
+	}
+
+}
